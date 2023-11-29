@@ -1,5 +1,4 @@
 import entities.Student;
-import entities.TipoStudente;
 
 public class Main {
 	public static void main(String[] args) {
@@ -53,7 +52,12 @@ public class Main {
 			System.out.println("Gli oggetti sono diversi");
 		}
 
-		aldo.tipo = TipoStudente.BACKEND;
+		System.out.println(aldo);
+
+		System.out.println("Il cognome di aldo è " + aldo.getSurname());
+		System.out.println("Il tipo di studente è " + aldo.getTipo());
+		aldo.setName("Aje");
+
 		aldo.sayHello();
 		giovanni.sayHello();
 	}
