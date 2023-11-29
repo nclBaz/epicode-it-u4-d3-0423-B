@@ -1,5 +1,6 @@
 package entities;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class Student {
@@ -8,6 +9,7 @@ public class Student {
 	// LISTA ATTRIBUTI
 	public String name;
 	public String surname;
+	public TipoStudente tipo = TipoStudente.FULLSTACK;
 	int id;
 
 
@@ -46,6 +48,16 @@ public class Student {
 
 	// LISTA METODI
 	public void sayHello() {
-		System.out.println("Ciao sono " + this.name + " " + this.surname + ", ID:" + this.id);
+		System.out.println("Ciao sono " + this.name + " " + this.surname + ", ID:" + this.id + ", tipo studente = " + tipo);
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Student student = (Student) o; // cast da Object (oggetto generico) a Student (oggetto specifico)
+		return id == student.id && Objects.equals(name, student.name) && Objects.equals(surname, student.surname);
+	}
+
+
 }
